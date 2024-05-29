@@ -10,8 +10,6 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
        Link link = new Link();
        link.Conn();
-       Computer computer = new Computer();
-       computer.createComputer();
     }
 
 }
