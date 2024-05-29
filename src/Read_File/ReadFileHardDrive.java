@@ -30,6 +30,7 @@ public class ReadFileHardDrive {
         String line = block.nextLine();
         count = Integer.parseInt(line);
         System.out.println("Вы ввели хуйню: " + line);
+        System.out.println("Хуйх2");
     }
 
 }
