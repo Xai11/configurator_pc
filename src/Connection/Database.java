@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 public class Database {
-    public Database(){};
     public Connection connect(String dbname, String user, String pass) {
         Connection conn = null;
 
@@ -20,6 +19,9 @@ public class Database {
         }
 
         return conn;
+    }
+    public void connect(){
+
     }
 }
 
