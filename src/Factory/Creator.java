@@ -2,8 +2,6 @@ package Factory;
 
 import Computer.Manual;
 import Computer.Random;
-import Singleton.Director;
-import Singleton.NameComponents;
 
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -21,8 +19,6 @@ public class Creator implements ICreator {
         return count;
     }
     public void createComputer() throws FileNotFoundException {
-        NameComponents nameComponents = new NameComponents();
-        Director director = new Director();
         if (getRequest() == 0){
             Manual manual = new Manual();
             manual.createManual();
