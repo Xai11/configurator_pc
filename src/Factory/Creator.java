@@ -29,6 +29,7 @@ public class Creator implements ICreator {
         else if (getCount() == 1){
             Random random = new Random();
             random.createRandom();
+            // Вот тут
         }
     }
 
