@@ -1,35 +1,41 @@
 package Confugurator;
 
-import Components_computer.*;
+import Components_computer.BlockPower;
+import Components_computer.MatherBoard;
+import Components_computer.Processor;
+import Components_computer.VideoCard;
 import Disk_Modul.HardDisk;
 import RAM_Modul.RAM;
 
 import java.io.FileNotFoundException;
 
-public class ComponentManual implements IComponent {
+public class ComponentRandom {
+
     public void createBlockPower() throws FileNotFoundException {
         BlockPower blockPower = new BlockPower();
-        blockPower.newCreateBlockPowerManual();
+        blockPower.newCreateBlockPowerRandom();
     }
     public void createHardDisk() throws FileNotFoundException {
         HardDisk hrDisk = new HardDisk();
-        hrDisk.newCreateHardDiskManual();
+        hrDisk.newCreateHardDiskRandom();
+
     }
     public void createMatherBoard() throws FileNotFoundException {
         MatherBoard matherBoard = new MatherBoard();
-        matherBoard.newCreateMatherBoardManual();
+        matherBoard.newCreateMatherBoardRandom();
 
     }
     public void createProcessor() throws FileNotFoundException {
         Processor processor = new Processor();
-        processor.newCreateProcessorManual();
+        processor.newCreateProcessorRandom();
     }
     public void createRAM() throws FileNotFoundException {
         RAM ram = new RAM();
-        ram.CountSlotRamManual();
+        ram.CountSlotRamRandom();
     }
     public void createVideoCard() throws FileNotFoundException {
         VideoCard videoCard = new VideoCard();
-        videoCard.newCreateVideoCardManual();
+        videoCard.newCreateVideoCardRandom();
     }
+
 }

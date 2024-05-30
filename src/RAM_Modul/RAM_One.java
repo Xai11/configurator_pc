@@ -10,9 +10,16 @@ public class RAM_One{
     private int countMemory;
     private String DDR;
 
-    public void createRamOne() throws FileNotFoundException {
+    public void createRamOneManual() throws FileNotFoundException {
         ReadFileRAM read = new ReadFileRAM();
         String[] fullName = read.ManualInput().split(";");
+        name = fullName[0];
+        countMemory = Integer.parseInt(fullName[1].split(" ")[0]);
+        DDR = fullName[2];
+    }
+    public void createRamOneRandom() throws FileNotFoundException {
+        ReadFileRAM read = new ReadFileRAM();
+        String[] fullName = read.RandomInput().split(";");
         name = fullName[0];
         countMemory = Integer.parseInt(fullName[1].split(" ")[0]);
         DDR = fullName[2];

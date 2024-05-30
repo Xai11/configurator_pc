@@ -1,8 +1,10 @@
 package RAM_Modul;
 
 import Singleton.Characteristics;
+import Singleton.NameComponents;
 
 import java.io.FileNotFoundException;
+import java.util.Random;
 import java.util.Scanner;
 
 public class RAM {
@@ -13,9 +15,10 @@ public class RAM {
     private RAM_Four ramFour = new RAM_Four();
 
 
-    public void CountSlotRam() throws FileNotFoundException {
+    public void CountSlotRamManual() throws FileNotFoundException {
         Characteristics characteristics = Characteristics.getInstance();
         countRam = characteristics.getCountSlot();
+        NameComponents nameComponents = NameComponents.getInstance();
 
         Scanner RAM = new Scanner(System.in);
 
@@ -37,49 +40,61 @@ public class RAM {
 
             int count2 = Integer.parseInt(line2);
 
-            for(int i = 0; i < count2; i++){
-                if (i == 0){
+            for (int i = 0; i < count2; i++) {
+                if (i == 0) {
                     System.out.print(i + ": ");
-                    ramOne.createRamOne();
+                    ramOne.createRamOneManual();
                     System.out.println("");
-                }
-                else if (i == 1){
+                } else if (i == 1) {
                     System.out.print(i + ": ");
-                    ramTwo.createRamTwo();
+                    ramTwo.createRamTwoManual();
                     System.out.println("");
-                }
-                else if (i == 2){
+                } else if (i == 2) {
                     System.out.print(i + ": ");
-                    ramTree.createRamTree();
+                    ramTree.createRamTreeManual();
                     System.out.println("");
-                }
-                else if (i == 3){
+                } else if (i == 3) {
                     System.out.print(i + ": ");
-                    ramFour.createRamFour();
+                    ramFour.createRamFourManual();
                     System.out.println("");
                 }
             }
-        }
-        else if (query1 == 1){
+            if(count2 == 1){
+                String[] temp = {ramOne.getName()};
+                nameComponents.setNameRAM(temp);
+            } else if(count2 == 2){
+                String[] temp = {ramOne.getName(), ramTwo.getName()};
+                nameComponents.setNameRAM(temp);
+            } else if(count2 == 3){
+                String[] temp = {ramOne.getName(), ramTwo.getName(), ramTree.getName()};
+                nameComponents.setNameRAM(temp);
+            } else{
+                String[] temp = {ramOne.getName(), ramTwo.getName(), ramTree.getName(), ramFour.getName()};
+                nameComponents.setNameRAM(temp);
+            }
+        } else if (query1 == 1) {
             Scanner query2 = new Scanner(System.in);
             String line3;
-            if(countRam == 4) {
+            if (countRam == 4) {
                 System.out.print("Сколько хотите плашек добавить, 2 или 4: ");
                 line3 = query2.nextLine();
-            }else {
-                System.out.print("В вашу материнскую плату вмещается только 2 ");
+            } else {
+                System.out.print("В вашу материнскую плату вмещается только 2 \n");
                 line3 = "2";
             }
 
             int count3 = Integer.parseInt(line3);
-            if(count3 == 2){
-                ramOne.createRamOne();
+            if (count3 == 2) {
+                ramOne.createRamOneManual();
+
                 ramTwo.setName(ramOne.getName());
                 ramTwo.setCountMemory(ramOne.getCountMemory());
                 ramTwo.setDDR(ramOne.getDDR());
-            }
-            else if (count3 == 4){
-                ramOne.createRamOne();
+
+                String[] temp = {ramOne.getName(), ramTwo.getName()};
+                nameComponents.setNameRAM(temp);
+            } else if (count3 == 4) {
+                ramOne.createRamOneManual();
                 ramTwo.setName(ramOne.getName());
                 ramTwo.setCountMemory(ramOne.getCountMemory());
                 ramTwo.setDDR(ramOne.getDDR());
@@ -91,13 +106,58 @@ public class RAM {
                 ramFour.setName(ramOne.getName());
                 ramFour.setCountMemory(ramOne.getCountMemory());
                 ramFour.setDDR(ramOne.getDDR());
+
+                String[] temp = {ramOne.getName(), ramTwo.getName(), ramTree.getName(), ramFour.getName()};
+                nameComponents.setNameRAM(temp);
             }
         }
+        System.out.println("Создана ОЗУ");
     }
 
-    public void newCreateRAM() {
+    public void CountSlotRamRandom() throws FileNotFoundException {
+        Characteristics characteristics = Characteristics.getInstance();
+        countRam = characteristics.getCountSlot();
+        NameComponents nameComponents = NameComponents.getInstance();
+        int randNumb;
+        if (countRam == 4) {
+            Random rand = new Random();
+            randNumb = rand.nextInt(2) * 2 + 2;
+
+        } else {
+            randNumb = 2;
+        }
+
+
+        if (randNumb == 2) {
+            ramOne.createRamOneRandom();
+
+            ramTwo.setName(ramOne.getName());
+            ramTwo.setCountMemory(ramOne.getCountMemory());
+            ramTwo.setDDR(ramOne.getDDR());
+
+            String[] temp = {ramOne.getName(), ramTwo.getName()};
+
+            nameComponents.setNameRAM(temp);
+        } else if (randNumb == 4) {
+            ramOne.createRamOneRandom();
+            ramTwo.setName(ramOne.getName());
+            ramTwo.setCountMemory(ramOne.getCountMemory());
+            ramTwo.setDDR(ramOne.getDDR());
+
+            ramTree.setName(ramOne.getName());
+            ramTree.setCountMemory(ramOne.getCountMemory());
+            ramTree.setDDR(ramOne.getDDR());
+
+            ramFour.setName(ramOne.getName());
+            ramFour.setCountMemory(ramOne.getCountMemory());
+            ramFour.setDDR(ramOne.getDDR());
+
+            String[] temp = {ramOne.getName(), ramTwo.getName(), ramTree.getName(), ramFour.getName()};
+            nameComponents.setNameRAM(temp);
+        }
 
         System.out.println("Создана ОЗУ");
     }
+
 
 }

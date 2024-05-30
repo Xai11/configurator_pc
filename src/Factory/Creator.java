@@ -15,6 +15,7 @@ public class Creator implements ICreator {
         System.out.print("Введите свой выбор " );
         String line = request.nextLine();
         int count = Integer.parseInt(line);
+        System.out.println("");
         return count;
     }
     public void createComputer() throws FileNotFoundException {

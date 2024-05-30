@@ -8,9 +8,17 @@ public class RAM_Tree {
     private String name;
     private int countMemory;
     private String DDR;
-    public void createRamTree() throws FileNotFoundException {
+    public void createRamTreeManual() throws FileNotFoundException {
         ReadFileRAM read = new ReadFileRAM();
         String[] fullName = read.ManualInput().split(";");
+        name = fullName[0];
+        countMemory = Integer.parseInt(fullName[1].split(" ")[0]);
+        DDR = fullName[2];
+
+    }
+    public void createRamTreeRandom() throws FileNotFoundException {
+        ReadFileRAM read = new ReadFileRAM();
+        String[] fullName = read.RandomInput().split(";");
         name = fullName[0];
         countMemory = Integer.parseInt(fullName[1].split(" ")[0]);
         DDR = fullName[2];
