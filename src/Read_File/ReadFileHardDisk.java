@@ -17,19 +17,19 @@ public class ReadFileHardDisk {
         while(readDisk.hasNextLine()){
             hardDisk.add(readDisk.nextLine());
         }
-        System.out.println(hardDisk.toString());
     }
-    public void ManualInput(){
+    public String ManualInput(){
         int i = 0;
+        System.out.println("Диски: " );
         while(i < hardDisk.size()){
-            System.out.println(i + " - " + hardDisk.get(i));
+            System.out.println(i + " - " + hardDisk.get(i).replace(";", ", "));
             i++;
         }
         Scanner disk = new Scanner(System.in);
-        System.out.print("Введите свою хуйню " );
+        System.out.print("Введите свой выбор " );
         String line = disk.nextLine();
         count = Integer.parseInt(line);
-        System.out.println("Вы ввели хуйню: " + line);
+        return hardDisk.get(count);
     }
 
 }
