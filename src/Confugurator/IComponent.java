@@ -1,10 +1,12 @@
 package Confugurator;
 
+import java.io.FileNotFoundException;
+
 public interface IComponent {
-    public void createBlockPower();
+    public void createBlockPower() throws FileNotFoundException;
     public void createHardDisk();
-    public void createMatherBoard();
-    public void createProcessor();
+    public void createMatherBoard() throws FileNotFoundException;
+    public void createProcessor() throws FileNotFoundException;
     public void createRAM();
-    public void createVideoCard();
+    public void createVideoCard() throws FileNotFoundException;
 }

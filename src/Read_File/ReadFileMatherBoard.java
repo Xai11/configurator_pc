@@ -12,23 +12,23 @@ public class ReadFileMatherBoard {
     private int count;
 
     public ReadFileMatherBoard() throws FileNotFoundException {
-        FileReader fileMatherBoard = new FileReader("C:/files/MotherBoard.txt");
+        FileReader fileMatherBoard = new FileReader("C:/files/MatherBoard.txt");
         Scanner readBoard = new Scanner(fileMatherBoard);
         while(readBoard.hasNextLine()){
             matherBoard.add(readBoard.nextLine());
         }
-        System.out.println(matherBoard.toString());
     }
-    public void ManualInput(){
+    public String ManualInput(){
         int i = 0;
+        System.out.println("Материнские платы: " );
         while(i < matherBoard.size()){
-            System.out.println(i + " - " + matherBoard.get(i));
+            System.out.println(i + " - " + matherBoard.get(i).replace(";", ", "));
             i++;
         }
         Scanner board = new Scanner(System.in);
-        System.out.print("Введите свою хуйню " );
+        System.out.print("Введите свой выбор " );
         String line = board.nextLine();
         count = Integer.parseInt(line);
-        System.out.println("Вы ввели хуйню: " + line);
+        return matherBoard.get(count);
     }
 }

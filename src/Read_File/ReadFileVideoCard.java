@@ -16,28 +16,20 @@ public class ReadFileVideoCard {
         while(readVideo.hasNextLine()){
             videoCard.add(readVideo.nextLine());
         }
-        System.out.println(videoCard.toString());
 
     }
-    public void ManualInput(){
+    public String ManualInput(){
         int i = 0;
+        System.out.println("Видеокарты: " );
         while(i < videoCard.size()){
-            System.out.println(i + " - " + videoCard.get(i));
+            System.out.println(i + " - " + videoCard.get(i).replace(";", ", "));
             i++;
         }
         Scanner video= new Scanner(System.in);
-        System.out.print("Введите свою хуйню " );
+        System.out.print("Введите свой вариант: " );
         String line = video.nextLine();
         count = Integer.parseInt(line);
-        System.out.println("Вы ввели хуйню: " + line);
-    }
-    public void IDocument(){
-        int i = 0;
-        System.out.println("Hello, World");
-
-    }
-    public int getCount(){
-        return count;
+        return videoCard.get(count);
     }
 
 

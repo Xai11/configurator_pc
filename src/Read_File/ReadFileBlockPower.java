@@ -17,20 +17,20 @@ public class ReadFileBlockPower {
         while(readPower.hasNextLine()){
             blockPower.add(readPower.nextLine());
         }
-        System.out.println(blockPower.toString());
 
     }
-    public void ManualInput(){
+    public String ManualInput(){
         int i = 0;
+        System.out.println("Блоки питания: " );
         while(i < blockPower.size()){
-            System.out.println(i + " - " + blockPower.get(i));
+            System.out.println(i + " - " + blockPower.get(i).replace(";", ", "));
             i++;
         }
         Scanner block = new Scanner(System.in);
-        System.out.print("Введите свою хуйню " );
+        System.out.print("Введите свой выбор " );
         String line = block.nextLine();
         count = Integer.parseInt(line);
-        System.out.println("Вы ввели хуйню: " + line);
+        return blockPower.get(count);
     }
 
 

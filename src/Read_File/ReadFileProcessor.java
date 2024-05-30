@@ -17,19 +17,19 @@ public class ReadFileProcessor {
         while(readProc.hasNextLine()){
             proc.add(readProc.nextLine());
         }
-        System.out.println(proc.toString());
     }
-    public void ManualInput(){
+    public String ManualInput(){
         int i = 0;
+        System.out.println("Процессоры: " );
         while(i < proc.size()){
-            System.out.println(i + " - " + proc.get(i));
+            System.out.println(i + " - " + proc.get(i).replace(";", ", "));
             i++;
         }
         Scanner processor = new Scanner(System.in);
-        System.out.print("Введите свою хуйню " );
+        System.out.print("Введите свой вариант " );
         String line = processor.nextLine();
         count = Integer.parseInt(line);
-        System.out.println("Вы ввели хуйню: " + line);
+        return proc.get(count);
     }
 
 }

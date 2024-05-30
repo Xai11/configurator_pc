@@ -3,8 +3,10 @@ package Confugurator;
 import Components_computer.*;
 import RAM_Modul.RAM;
 
-public class Component implements IComponent {
-    public void createBlockPower(){
+import java.io.FileNotFoundException;
+
+public class ComponentManual implements IComponent {
+    public void createBlockPower() throws FileNotFoundException {
         BlockPower blockPower = new BlockPower();
         blockPower.newCreateBlockPower();
     }
@@ -12,12 +14,12 @@ public class Component implements IComponent {
         HardDisk hrDisk = new HardDisk();
         hrDisk.newCreateHardDisk();
     }
-    public void createMatherBoard(){
+    public void createMatherBoard() throws FileNotFoundException {
         MatherBoard matherBoard = new MatherBoard();
         matherBoard.newCreateMatherBoard();
 
     }
-    public void createProcessor(){
+    public void createProcessor() throws FileNotFoundException {
         Processor processor = new Processor();
         processor.newCreateProcessor();
     }
@@ -25,7 +27,7 @@ public class Component implements IComponent {
         RAM Ram = new RAM();
         Ram.newCreateRAM();
     }
-    public void createVideoCard(){
+    public void createVideoCard() throws FileNotFoundException {
         VideoCard videoCard = new VideoCard();
         videoCard.newCreateVideoCard();
     }
