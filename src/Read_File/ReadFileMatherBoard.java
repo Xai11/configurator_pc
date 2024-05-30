@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class ReadFileMatherBoard {
@@ -43,5 +44,12 @@ public class ReadFileMatherBoard {
         String line = board.nextLine();
         count = Integer.parseInt(line);
         return matherBoard.get(count);
+    }
+
+    public String RandomInput(){
+        count = matherBoard.size();
+        Random rand = new Random();
+        int randNumb = rand.nextInt(count);
+        return matherBoard.get(randNumb);
     }
 }

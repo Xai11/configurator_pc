@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class ReadFileProcessor {
@@ -30,6 +31,13 @@ public class ReadFileProcessor {
         String line = processor.nextLine();
         count = Integer.parseInt(line);
         return proc.get(count);
+    }
+
+    public String RandomInput(){
+        count = proc.size();
+        Random rand = new Random();
+        int randNumb = rand.nextInt(count);
+        return proc.get(randNumb);
     }
 
 }

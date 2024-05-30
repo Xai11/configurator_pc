@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class ReadFileHardDisk {
@@ -32,4 +33,10 @@ public class ReadFileHardDisk {
         return hardDisk.get(count);
     }
 
+    public String RandomInput(){
+        count = hardDisk.size();
+        Random rand = new Random();
+        int randNumb = rand.nextInt(count);
+        return hardDisk.get(randNumb);
+    }
 }

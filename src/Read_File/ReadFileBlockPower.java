@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class ReadFileBlockPower {
@@ -44,6 +45,13 @@ public class ReadFileBlockPower {
         String line = block.nextLine();
         count = Integer.parseInt(line);
         return blockPower.get(count);
+    }
+
+    public String RandomInput(){
+        count = blockPower.size();
+        Random rand = new Random();
+        int randNumb = rand.nextInt(count);
+        return blockPower.get(randNumb);
     }
 
 

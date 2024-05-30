@@ -5,6 +5,7 @@ import java.nio.file.Files;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class ReadFileVideoCard {
@@ -32,5 +33,11 @@ public class ReadFileVideoCard {
         return videoCard.get(count);
     }
 
+    public String RandomInput(){
+        count = videoCard.size();
+        Random rand = new Random();
+        int randNumb = rand.nextInt(count);
+        return videoCard.get(randNumb);
+    }
 
 }
