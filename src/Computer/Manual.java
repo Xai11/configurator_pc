@@ -4,9 +4,9 @@ import Confugurator.ComponentManual;
 
 import java.io.FileNotFoundException;
 
-public class Computer {
+public class Manual {
 
-    public void createComputer() throws FileNotFoundException {
+    public void createManual() throws FileNotFoundException {
         ComponentManual component = new ComponentManual();
         component.createProcessor();
         component.createMatherBoard();
