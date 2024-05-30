@@ -1,5 +1,7 @@
 package Read_File;
 
+import Singleton.Characteristics;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -14,8 +16,19 @@ public class ReadFileMatherBoard {
     public ReadFileMatherBoard() throws FileNotFoundException {
         FileReader fileMatherBoard = new FileReader("C:/files/MatherBoard.txt");
         Scanner readBoard = new Scanner(fileMatherBoard);
+        String temp_line;
+        Characteristics characteristics = Characteristics.getInstance();
+        String socket = characteristics.getSocket();
+        String temp_socket;
+        String DDR = characteristics.getDDR();
+        String temp_DDR;
         while(readBoard.hasNextLine()){
-            matherBoard.add(readBoard.nextLine());
+            temp_line = readBoard.nextLine();
+            temp_socket = temp_line.split(";")[1];
+            temp_DDR = temp_line.split(";")[3];
+            if(temp_socket.equals(socket) && temp_DDR.equals(DDR)) {
+                matherBoard.add(temp_line);
+            }
         }
     }
     public String ManualInput(){

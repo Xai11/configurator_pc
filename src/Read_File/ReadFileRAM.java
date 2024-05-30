@@ -1,5 +1,7 @@
 package Read_File;
 
+import Singleton.Characteristics;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -14,8 +16,16 @@ public class ReadFileRAM {
     public ReadFileRAM() throws FileNotFoundException {
         FileReader fileRAM = new FileReader("C:/files/RAM.txt");
         Scanner readRAM = new Scanner(fileRAM);
+        String temp_line;
+        Characteristics characteristics = Characteristics.getInstance();
+        String DDR = characteristics.getDDR();
+        String temp_DDR;
         while(readRAM.hasNextLine()){
-            RAM.add(readRAM.nextLine());
+            temp_line = readRAM.nextLine();
+            temp_DDR = temp_line.split(";")[2];
+            if(temp_DDR.equals(DDR)) {
+                RAM.add(temp_line);
+            }
         }
     }
     public String ManualInput(){
