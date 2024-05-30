@@ -10,7 +10,7 @@ public class Computer {
         ComponentManual component = new ComponentManual();
         component.createProcessor();
         component.createMatherBoard();
-        //component.createRAM();
+        component.createRAM();
         component.createVideoCard();
         component.createBlockPower();
         //component.createHardDisk();

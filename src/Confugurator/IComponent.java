@@ -7,6 +7,6 @@ public interface IComponent {
     public void createHardDisk();
     public void createMatherBoard() throws FileNotFoundException;
     public void createProcessor() throws FileNotFoundException;
-    public void createRAM();
+    public void createRAM() throws FileNotFoundException;
     public void createVideoCard() throws FileNotFoundException;
 }

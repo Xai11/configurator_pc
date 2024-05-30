@@ -12,7 +12,7 @@ public class ReadFileRAM {
     private int count;
 
     public ReadFileRAM() throws FileNotFoundException {
-        FileReader fileRAM = new FileReader("C:/files/Processor.txt");
+        FileReader fileRAM = new FileReader("C:/files/RAM.txt");
         Scanner readRAM = new Scanner(fileRAM);
         while(readRAM.hasNextLine()){
             RAM.add(readRAM.nextLine());

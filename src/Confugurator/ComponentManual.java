@@ -23,9 +23,9 @@ public class ComponentManual implements IComponent {
         Processor processor = new Processor();
         processor.newCreateProcessor();
     }
-    public void createRAM(){
-        RAM Ram = new RAM();
-        Ram.newCreateRAM();
+    public void createRAM() throws FileNotFoundException {
+        RAM ram = new RAM();
+        ram.CountSlotRam();
     }
     public void createVideoCard() throws FileNotFoundException {
         VideoCard videoCard = new VideoCard();
