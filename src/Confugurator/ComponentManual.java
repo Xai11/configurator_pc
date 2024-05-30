@@ -1,6 +1,7 @@
 package Confugurator;
 
 import Components_computer.*;
+import Disk_Modul.HardDisk;
 import RAM_Modul.RAM;
 
 import java.io.FileNotFoundException;
@@ -10,7 +11,7 @@ public class ComponentManual implements IComponent {
         BlockPower blockPower = new BlockPower();
         blockPower.newCreateBlockPower();
     }
-    public void createHardDisk(){
+    public void createHardDisk() throws FileNotFoundException {
         HardDisk hrDisk = new HardDisk();
         hrDisk.newCreateHardDisk();
     }

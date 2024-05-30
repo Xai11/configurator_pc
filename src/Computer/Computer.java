@@ -13,6 +13,6 @@ public class Computer {
         component.createRAM();
         component.createVideoCard();
         component.createBlockPower();
-        //component.createHardDisk();
+        component.createHardDisk();
     }
 }
