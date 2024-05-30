@@ -1,18 +1,14 @@
 package Computer;
 
-import Connection.Relation;
-import Interaction.UserInteraction;
-import Read_File.ReadFileVideoCard;
+import Factory.Creator;
 
 import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
-        Computer pc = new Computer();
-        pc.createComputer();
-
-
+        Creator creator = new Creator();
+        creator.createComputer();
     }
-
 }
