@@ -30,6 +30,7 @@ public class Creator implements ICreator {
         else if (getRequest() == 1){
             Random random = new Random();
             random.createRandom();
+            // Вот тут
         }
     }
 
