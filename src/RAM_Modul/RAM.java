@@ -122,7 +122,6 @@ public class RAM {
         if (countRam == 4) {
             Random rand = new Random();
             randNumb = rand.nextInt(2) * 2 + 2;
-
         } else {
             randNumb = 2;
         }

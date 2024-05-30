@@ -1,26 +1,43 @@
 package Singleton;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NameComponents {
     private static NameComponents instance = null;
+    private List<Observer> observers = new ArrayList<Observer>();
     private String nameBlockPower;
     private String nameMatherBoard;
     private String nameProcessor;
     private String nameVideoCard;
     private String[] nameRAM;
-    private String[] nameHardDisk;
+    private List<String> nameHardDisk = new ArrayList<String>();
     public static NameComponents getInstance(){
         if(instance == null){
             instance = new NameComponents();
         }
         return instance;
     }
+    public void notifyObservers(){
+        for(Observer observer: observers){
+            observer.event(nameHardDisk);
+        }
+    }
+    public void removeObserver(Observer observer){
+        observers.remove(observer);
+    }
+    public void addObserver(Observer observer){
+        observers.add(observer);
+    }
 
     public String getNameBlockPower() {
         return nameBlockPower;
+
     }
 
     public void setNameBlockPower(String nameBlockPower) {
         this.nameBlockPower = nameBlockPower;
+
     }
 
     public String getNameMatherBoard() {
@@ -29,6 +46,7 @@ public class NameComponents {
 
     public void setNameMatherBoard(String nameMatherBoard) {
         this.nameMatherBoard = nameMatherBoard;
+
     }
 
     public String getNameProcessor() {
@@ -37,6 +55,7 @@ public class NameComponents {
 
     public void setNameProcessor(String nameProcessor) {
         this.nameProcessor = nameProcessor;
+
     }
 
     public String getNameVideoCard() {
@@ -45,6 +64,7 @@ public class NameComponents {
 
     public void setNameVideoCard(String nameVideoCard) {
         this.nameVideoCard = nameVideoCard;
+
     }
 
     public String[] getNameRAM() {
@@ -53,19 +73,17 @@ public class NameComponents {
 
     public void setNameRAM(String[] nameRAM) {
         this.nameRAM = nameRAM;
-    }
-
-    public String[] getNameHardDisk() {
-        return nameHardDisk;
-
 
     }
 
-    public void setNameHardDisk(String[] nameHardDisk) {
-        this.nameHardDisk = nameHardDisk;
+//    public String[] getNameHardDisk() {
+//        return nameHardDisk;
+//    }
 
+    public void addHardDisk(String name) {
+        nameHardDisk.add(name);
+        notifyObservers();
     }
-
     public void SelectComputer() {
         System.out.println("Процессор: " + this.nameProcessor + "\n" +
                 "Материнская плата: " + nameMatherBoard);
@@ -74,8 +92,8 @@ public class NameComponents {
         }
         System.out.println("Видеокарта: " + nameVideoCard + "\n" +
                 "Блок питания: " + nameBlockPower);
-        for (int i = 0; i < nameHardDisk.length; i++) {
-            System.out.println("Жесткий диск №" + (i + 1) + ": " + nameHardDisk[i]);
+        for (int i = 0; i < nameHardDisk.size(); i++) {
+            System.out.println("Жесткий диск №" + (i + 1) + ": " + nameHardDisk.get(i));
         }
     }
 }

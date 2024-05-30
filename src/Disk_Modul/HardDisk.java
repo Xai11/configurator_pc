@@ -1,5 +1,6 @@
 package Disk_Modul;
 
+import Singleton.Director;
 import Singleton.NameComponents;
 
 import java.io.FileNotFoundException;
@@ -17,18 +18,21 @@ public class HardDisk {
         String StringCount = inputCon.nextLine();
         count = Integer.parseInt(StringCount);
         NameComponents nameComponents = NameComponents.getInstance();
+        Director director = new Director();
         if(count == 1){
             diskOne = new Hard_Disk_One();
             diskOne.newCreateHardDiskManual();
-            String[] temp1 = {diskOne.getName()};
-            nameComponents.setNameHardDisk(temp1);
+            nameComponents.addObserver(director);
+            nameComponents.addHardDisk(diskOne.getName());
+
         } else if(count == 2){
             diskOne = new Hard_Disk_One();
             diskOne.newCreateHardDiskManual();
             diskTwo = new Hard_Disk_Two();
             diskTwo.newCreateHardDiskManual();
-            String[] temp1 = {diskOne.getName(), diskTwo.getName()};
-            nameComponents.setNameHardDisk(temp1);
+            nameComponents.addHardDisk(diskOne.getName());
+            nameComponents.addObserver(director);
+            nameComponents.addHardDisk(diskTwo.getName());
         }else if(count == 3){
             diskOne = new Hard_Disk_One();
             diskOne.newCreateHardDiskManual();
@@ -36,28 +40,34 @@ public class HardDisk {
             diskTwo.newCreateHardDiskManual();
             diskTree = new Hard_Disk_Tree();
             diskTree.newCreateHardDiskManual();
-            String[] temp1 = {diskOne.getName(), diskTwo.getName(), diskTree.getName()};
-            nameComponents.setNameHardDisk(temp1);
+            nameComponents.addHardDisk(diskOne.getName());
+
+            nameComponents.addHardDisk(diskTwo.getName());
+            nameComponents.addObserver(director);
+            nameComponents.addHardDisk(diskTree.getName());
         }
 
     }
     public void newCreateHardDiskRandom() throws FileNotFoundException {
         Random rand = new Random();
-        int randNumb = rand.nextInt(2) + 1;
+        int randNumb = rand.nextInt(3) + 1;
         count = randNumb;
         NameComponents nameComponents = NameComponents.getInstance();
+        Director director = new Director();
         if(count == 1){
             diskOne = new Hard_Disk_One();
             diskOne.newCreateHardDiskRandom();
-            String[] temp1 = {diskOne.getName()};
-            nameComponents.setNameHardDisk(temp1);
+            nameComponents.addObserver(director);
+            nameComponents.addHardDisk(diskOne.getName());
         } else if(count == 2){
             diskOne = new Hard_Disk_One();
             diskOne.newCreateHardDiskRandom();
             diskTwo = new Hard_Disk_Two();
             diskTwo.newCreateHardDiskRandom();
-            String[] temp1 = {diskOne.getName(), diskTwo.getName()};
-            nameComponents.setNameHardDisk(temp1);
+
+            nameComponents.addHardDisk(diskOne.getName());
+            nameComponents.addObserver(director);
+            nameComponents.addHardDisk(diskTwo.getName());
         }else if(count == 3){
             diskOne = new Hard_Disk_One();
             diskOne.newCreateHardDiskRandom();
@@ -65,8 +75,10 @@ public class HardDisk {
             diskTwo.newCreateHardDiskRandom();
             diskTree = new Hard_Disk_Tree();
             diskTree.newCreateHardDiskRandom();
-            String[] temp1 = {diskOne.getName(), diskTwo.getName(), diskTree.getName()};
-            nameComponents.setNameHardDisk(temp1);
+            nameComponents.addHardDisk(diskOne.getName());
+            nameComponents.addHardDisk(diskTwo.getName());
+            nameComponents.addObserver(director);
+            nameComponents.addHardDisk(diskTree.getName());
         }
 
     }
