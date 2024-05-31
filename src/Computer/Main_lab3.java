@@ -1,16 +1,16 @@
 package Computer;
 
-public class BarbaerShopTest {
+public class Main_lab3 {
 
     public static void main(String args[]) {
         // Создаем парикмахерскую с парикмахером
-        BarberShop barberShopSim = new BarberShop();
+        Shop shopSim = new Shop();
 
-        Thread barberThread = new Thread(barberShopSim.getBarber());
+        Thread barberThread = new Thread(shopSim.getBarber());
         barberThread.start();
 
         while(true) {
-            Thread customerThread = new Thread(new Client(barberShopSim, "Посетитель "));
+            Thread customerThread = new Thread(new Client(shopSim, "Посетитель "));
             customerThread.start();
 
             try {

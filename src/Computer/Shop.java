@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class BarberShop {
+public class Shop {
     Creator creator = new Creator();
     Characteristics ch = Characteristics.getInstance();
 
@@ -44,7 +44,7 @@ public class BarberShop {
     // Места в приемной
     private Queue<Client> clientList = new LinkedList<Client>();
 
-    public BarberShop() {
+    public Shop() {
         customersCount = 0;
         leftCustomersCount = 0;
 

@@ -8,11 +8,11 @@ public class Client implements Runnable {
     private String customerName;
 
     // Парикмахерская
-    private BarberShop barberShop;
+    private Shop shop;
 
-    public Client(BarberShop bShop, String name) {
+    public Client(Shop bShop, String name) {
         customerName = name + id;
-        barberShop = bShop;
+        shop = bShop;
         id++;
     }
 
@@ -22,6 +22,6 @@ public class Client implements Runnable {
 
     @Override
     public void run() {
-        barberShop.sitInWorkspace(this);
+        shop.sitInWorkspace(this);
     }
 }
