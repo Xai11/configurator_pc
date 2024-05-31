@@ -10,6 +10,8 @@ public class Main {
         Creator creator = new Creator();
         creator.setRequest();
         creator.createComputer();
+
+
     }
 }
 
