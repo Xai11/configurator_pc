@@ -13,6 +13,12 @@ public class Characteristics {
         }
         return instance;
     }
+    public void reset(){
+        socket = "0";
+        DDR = "0";
+        powerMax = 0;
+        countSlot = 0;
+    }
 
     public String getSocket() {
         return socket;

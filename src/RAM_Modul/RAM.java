@@ -111,7 +111,7 @@ public class RAM {
                 nameComponents.setNameRAM(temp);
             }
         }
-        System.out.println("Создана ОЗУ");
+        //System.out.println("Создана ОЗУ");
     }
 
     public void CountSlotRamRandom() throws FileNotFoundException {
@@ -155,7 +155,7 @@ public class RAM {
             nameComponents.setNameRAM(temp);
         }
 
-        System.out.println("Создана ОЗУ");
+        //System.out.println("Создана ОЗУ");
     }
 
 

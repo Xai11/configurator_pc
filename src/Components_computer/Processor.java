@@ -27,7 +27,7 @@ public class Processor extends ComponentManual {
         characteristics.setPowerMax(powerMax);
         NameComponents nameComponents = NameComponents.getInstance();
         nameComponents.setNameProcessor(name);
-        System.out.println("Создан процессор");
+        //System.out.println("Создан процессор");
     }
     public void newCreateProcessorRandom() throws FileNotFoundException {
         ReadFileProcessor read = new ReadFileProcessor();
@@ -43,7 +43,7 @@ public class Processor extends ComponentManual {
         characteristics.setPowerMax(powerMax);
         NameComponents nameComponents = NameComponents.getInstance();
         nameComponents.setNameProcessor(name);
-        System.out.println("Создан процессор");
+        //System.out.println("Создан процессор");
     }
 
     public String getName() {

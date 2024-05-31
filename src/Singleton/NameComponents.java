@@ -18,6 +18,16 @@ public class NameComponents {
         }
         return instance;
     }
+
+    public void reset(){
+        nameBlockPower = null;
+        nameMatherBoard = null;
+        nameProcessor = null;
+        nameVideoCard = null;
+        nameRAM = null;
+        nameHardDisk = new ArrayList<String>();
+    }
+
     public void notifyObservers(){
         for(Observer observer: observers){
             observer.event(nameHardDisk);

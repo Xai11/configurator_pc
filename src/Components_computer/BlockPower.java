@@ -17,7 +17,7 @@ public class BlockPower extends ComponentManual {
         powerMax = Integer.parseInt(fullName[1].split(" ")[0]);
         NameComponents nameComponents = NameComponents.getInstance();
         nameComponents.setNameBlockPower(name);
-        System.out.println("Создан блок питания");
+        //System.out.println("Создан блок питания");
     }
     public void newCreateBlockPowerRandom() throws FileNotFoundException {
         ReadFileBlockPower read = new ReadFileBlockPower();
@@ -26,7 +26,7 @@ public class BlockPower extends ComponentManual {
         powerMax = Integer.parseInt(fullName[1].split(" ")[0]);
         NameComponents nameComponents = NameComponents.getInstance();
         nameComponents.setNameBlockPower(name);
-        System.out.println("Создан блок питания");
+        //System.out.println("Создан блок питания");
     }
 
     public String getName() {

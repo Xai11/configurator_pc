@@ -22,7 +22,7 @@ public class HardDisk {
         if(count == 1){
             diskOne = new Hard_Disk_One();
             diskOne.newCreateHardDiskManual();
-            nameComponents.addObserver(director);
+            //nameComponents.addObserver(director);
             nameComponents.addHardDisk(diskOne.getName());
 
         } else if(count == 2){
@@ -31,7 +31,7 @@ public class HardDisk {
             diskTwo = new Hard_Disk_Two();
             diskTwo.newCreateHardDiskManual();
             nameComponents.addHardDisk(diskOne.getName());
-            nameComponents.addObserver(director);
+            //nameComponents.addObserver(director);
             nameComponents.addHardDisk(diskTwo.getName());
         }else if(count == 3){
             diskOne = new Hard_Disk_One();
@@ -43,7 +43,7 @@ public class HardDisk {
             nameComponents.addHardDisk(diskOne.getName());
 
             nameComponents.addHardDisk(diskTwo.getName());
-            nameComponents.addObserver(director);
+            //nameComponents.addObserver(director);
             nameComponents.addHardDisk(diskTree.getName());
         }
 
@@ -57,7 +57,7 @@ public class HardDisk {
         if(count == 1){
             diskOne = new Hard_Disk_One();
             diskOne.newCreateHardDiskRandom();
-            nameComponents.addObserver(director);
+            //nameComponents.addObserver(director);
             nameComponents.addHardDisk(diskOne.getName());
         } else if(count == 2){
             diskOne = new Hard_Disk_One();
@@ -66,7 +66,7 @@ public class HardDisk {
             diskTwo.newCreateHardDiskRandom();
 
             nameComponents.addHardDisk(diskOne.getName());
-            nameComponents.addObserver(director);
+            //nameComponents.addObserver(director);
             nameComponents.addHardDisk(diskTwo.getName());
         }else if(count == 3){
             diskOne = new Hard_Disk_One();
@@ -77,7 +77,7 @@ public class HardDisk {
             diskTree.newCreateHardDiskRandom();
             nameComponents.addHardDisk(diskOne.getName());
             nameComponents.addHardDisk(diskTwo.getName());
-            nameComponents.addObserver(director);
+            //nameComponents.addObserver(director);
             nameComponents.addHardDisk(diskTree.getName());
         }
 

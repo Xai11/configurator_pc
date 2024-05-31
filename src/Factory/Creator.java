@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class Creator implements ICreator {
     private int count = 0;
     public void setRequest(){
+        count = 0;
         System.out.println("Выберите, какой способ сборки компьютера вам подходит:\n" +
                 "0 - Ручной (Каждую деталь нужно выбирать самостоятельно)\n" +
                 "1 - Существующий (Вам уже подобрали готовую сборку");
@@ -35,6 +36,11 @@ public class Creator implements ICreator {
             random.createRandom();
             // Вот тут
         }
+    }
+
+    public void createComputerRandom() throws FileNotFoundException {
+        Random random = new Random();
+        random.create();
     }
 
 }

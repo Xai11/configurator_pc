@@ -24,7 +24,7 @@ public class MatherBoard extends ComponentManual {
         characteristics.setCountSlot(countSlot);
         NameComponents nameComponents = NameComponents.getInstance();
         nameComponents.setNameMatherBoard(name);
-        System.out.println("Создана материнская плата");
+        //System.out.println("Создана материнская плата");
     }
     public void newCreateMatherBoardRandom() throws FileNotFoundException {
         ReadFileMatherBoard read = new ReadFileMatherBoard();
@@ -37,7 +37,7 @@ public class MatherBoard extends ComponentManual {
         characteristics.setCountSlot(countSlot);
         NameComponents nameComponents = NameComponents.getInstance();
         nameComponents.setNameMatherBoard(name);
-        System.out.println("Создана материнская плата");
+        //System.out.println("Создана материнская плата");
     }
 
     public String getName() {

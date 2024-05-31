@@ -21,7 +21,7 @@ public class VideoCard extends ComponentManual {
         characteristics.setPowerMax(powerMax);
         NameComponents nameComponents = NameComponents.getInstance();
         nameComponents.setNameVideoCard(name);
-        System.out.println("Создана видеокарта");
+        //System.out.println("Создана видеокарта");
     }
 
     public void newCreateVideoCardRandom() throws FileNotFoundException {
@@ -34,7 +34,7 @@ public class VideoCard extends ComponentManual {
         characteristics.setPowerMax(powerMax);
         NameComponents nameComponents = NameComponents.getInstance();
         nameComponents.setNameVideoCard(name);
-        System.out.println("Создана видеокарта");
+        //System.out.println("Создана видеокарта");
     }
 
     public String getName() {
