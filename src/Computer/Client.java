@@ -1,27 +1,29 @@
 package Computer;
 
-public class Client implements Runnable {
-    // Номер посетителя
-    private static int id = 1;
+import static Computer.Shop.*;
 
-    // Имя посетителя
-    private String customerName;
+public class Client extends Thread {
+    int id;
 
-    // Парикмахерская
-    private Shop shop;
-
-    public Client(Shop bShop, String name) {
-        customerName = name + id;
-        shop = bShop;
-        id++;
+    public Client(int id) {
+        this.id = id;
     }
 
-    public String getClientName() {
-        return customerName;
-    }
-
-    @Override
     public void run() {
-        shop.sitInWorkspace(this);
+        try {
+            mutex.acquire();
+            if (chairs > 0) {
+                chairs--;
+                customers.release();
+                mutex.release();
+                barbers.acquire();
+                System.out.println("Клиен " + this.id + " взаимодействует с консультантом");
+            } else {
+                mutex.release();
+                System.out.println("Клиент " + this.id + " не нашел свободных мест");
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
