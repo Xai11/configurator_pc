@@ -6,7 +6,7 @@ public class Main_lab3 {
         // Создаем парикмахерскую с парикмахером
         Shop shopSim = new Shop();
 
-        Thread barberThread = new Thread(shopSim.getBarber());
+        Thread barberThread = new Thread(shopSim.getCons());
         barberThread.start();
 
         while(true) {

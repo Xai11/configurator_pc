@@ -16,7 +16,7 @@ public class Client implements Runnable {
         id++;
     }
 
-    public String getCustomerName() {
+    public String getClientName() {
         return customerName;
     }
 

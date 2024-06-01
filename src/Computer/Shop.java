@@ -14,41 +14,41 @@ public class Shop {
 
     NameComponents nc = NameComponents.getInstance();
     // Количество мест в приемной
-    public static final int NUM_CHAIRS = 3;
+    public static final int NUM_Client = 3;
 
-    // Количество рабочих мест(парикмахеров)
+    // Количество рабочих мест(консультантов)
     public static final int NUM_WORKSPACES = 1;
 
-    // Время одной стрижки в мс
+    // Время одной сборки в мс
     public static final int WORK_TIME = 10000;
 
-    // Рабочее место парикмахера
-    private Client barberWorkspace;
+    // Рабочее место консультанта
+    private Client ConsWorkspace;
 
-    private enum BarberState {
+    private enum ConsState {
         SLEEP, WORK, NOTHING
     }
 
-    // Состояние парикмахера
-    BarberState stateFlag;
+    // Состояние Консультанта
+    ConsState stateFlag;
 
     // Количетсво обслуженных клиентов
-    private int customersCount;
+    private int clientCount;
 
     // Количество необслужанных клиентов
-    private int leftCustomersCount;
+    private int leftClientCount;
 
-    // Парикмахер
-    private Barber barberMan;
+    // Консультант
+    private Cons consMan;
 
     // Места в приемной
     private Queue<Client> clientList = new LinkedList<Client>();
 
     public Shop() {
-        customersCount = 0;
-        leftCustomersCount = 0;
+        clientCount = 0;
+        leftClientCount = 0;
 
-        barberMan = new Barber();
+        consMan = new Cons();
     }
 
     //=============================================
@@ -58,29 +58,29 @@ public class Shop {
         return clientList;
     }
     //---------------------------------------------
-    public Barber getBarber() {
-        return barberMan;
+    public Cons getCons() {
+        return consMan;
     }
     //=============================================
     // Методы посетителей
     //=============================================
     // Занять место в приемной посетителем если есть свободные, возвращает true если удалось
     private void sitInWaitingRoom(Client client) {
-        if( clientList.size() < NUM_CHAIRS ) {
+        if( clientList.size() < NUM_Client ) {
             clientList.add(client);
-            System.out.println(client.getCustomerName() + " занял место в очереди\n");
+            System.out.println(client.getClientName() + " занял место в очереди\n");
         } else {
-            leftCustomersCount++;
-            System.out.println(client.getCustomerName() + " ушел из магазина, так как большая очередь, количество необслужанных клиентов: "+ leftCustomersCount + "\n");
+            leftClientCount++;
+            System.out.println(client.getClientName() + " ушел из магазина, так как большая очередь, количество необслужанных клиентов: "+ leftClientCount + "\n");
         }
     }
     //---------------------------------------------
     // Разбудить парикмахера и сесть на рабочее место если парикмахер спит
     public synchronized void sitInWorkspace(Client client) {
-        if( checkBarber(client) == BarberState.SLEEP ) {
-            System.out.println(client.getCustomerName() + " обратился к консультанту за сборкой\n");
-            barberWorkspace = client;
-            stateFlag = BarberState.WORK;
+        if( checkCons(client) == ConsState.SLEEP ) {
+            System.out.println(client.getClientName() + " обратился к консультанту за сборкой\n");
+            ConsWorkspace = client;
+            stateFlag = ConsState.WORK;
         } else {
             sitInWaitingRoom(client);
         }
@@ -98,10 +98,10 @@ public class Shop {
     // Проверка состояния парикмахера со стороны клиента
     // 0 - sleep
     // 1 - work
-    public BarberState checkBarber(Client client) {
-        System.out.print(client.getCustomerName() + " проверяет занятость консультанта:");
+    public ConsState checkCons(Client client) {
+        System.out.print(client.getClientName() + " проверяет занятость консультанта:");
 
-        if( stateFlag == BarberState.SLEEP ){
+        if( stateFlag == ConsState.SLEEP ){
             System.out.println(" Консультант свободен\n");
         } else {
             System.out.println(" Консультант обслуживает клиента\n");
@@ -110,11 +110,11 @@ public class Shop {
         return stateFlag;
     }
     //=============================================
-    // Методы парикмахера
+    // Методы консультанта
     //=============================================
-    // Проверка наличия посетителей со стороны парикмахера
+    // Проверка наличия посетителей со стороны консультанта
     public synchronized boolean checkCustomers() {
-        System.out.printf("Консультант проверяет наличие клиентов: В очереди %d из %d\n\n", clientList.size(), NUM_CHAIRS);
+        System.out.printf("Консультант проверяет наличие клиентов: В очереди %d из %d\n\n", clientList.size(), NUM_Client);
         return !clientList.isEmpty();
     }
     //---------------------------------------------
@@ -130,10 +130,10 @@ public class Shop {
         }
 
         while( !isWorkspaceEmpty() ) {
-            if( stateFlag != BarberState.WORK)
-                stateFlag = BarberState.WORK;
+            if( stateFlag != ConsState.WORK)
+                stateFlag = ConsState.WORK;
 
-            System.out.printf("Консультант подбирает сборку компьютера клиенту: %s\n\n", barberWorkspace.getCustomerName());
+            System.out.printf("Консультант подбирает сборку компьютера клиенту: %s\n\n", ConsWorkspace.getClientName());
             creator.createComputerRandom();
             try {
                 wait(WORK_TIME);
@@ -142,45 +142,45 @@ public class Shop {
                 e.printStackTrace();
             }
 
-            System.out.printf("Консультант закончил сборку клиенту: %s\n\n", barberWorkspace.getCustomerName());
+            System.out.printf("Консультант закончил сборку клиенту: %s\n\n", ConsWorkspace.getClientName());
             System.out.println(" ");
             nc.SelectComputer();
             ch.reset();
             nc.reset();
-            customersCount++;
-            stateFlag = BarberState.NOTHING;
-            resetBarberWorkspace();
+            clientCount++;
+            stateFlag = ConsState.NOTHING;
+            resetConsWorkspace();
             callCustomer();
         }
     }
     //---------------------------------------------
     public synchronized void sleep() {
-        if( stateFlag != BarberState.SLEEP ) {
-            stateFlag = BarberState.SLEEP;
+        if( stateFlag != ConsState.SLEEP ) {
+            stateFlag = ConsState.SLEEP;
 
             System.out.println("Консультант свободен\n");
         }
     }
     //---------------------------------------------
     private boolean isWorkspaceEmpty() {
-        return barberWorkspace == null;
+        return ConsWorkspace == null;
     }
     //---------------------------------------------
-    private void resetBarberWorkspace() {
-        barberWorkspace = null;
+    private void resetConsWorkspace() {
+        ConsWorkspace = null;
     }
     //---------------------------------------------
     // Позвать клиента из очереди в приемной если есть, иначе спать, возвращает true если удалось
     private synchronized void callCustomer() {
         if( checkCustomers() ) {
-            barberWorkspace = clientList.poll();
+            ConsWorkspace = clientList.poll();
         }
     }
     //---------------------------------------------
-    // Класс парикмахер
-    public class Barber implements Runnable {
-        public Barber() {
-            stateFlag = BarberState.NOTHING;
+    // Класс консультант
+    public class Cons implements Runnable {
+        public Cons() {
+            stateFlag = ConsState.NOTHING;
         }
 
         @Override
