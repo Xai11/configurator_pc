@@ -7,3 +7,8 @@ There are 2 types of assembly: manual and automatic:
   /----------------------------------------------------------------------------------------------\
  /- All computer components are stored in files, but have not yet been added to the repository) --\
 /--------------------------------------------------------------------------------------------------\
+
+
+
+
+
